@@ -25,8 +25,22 @@ public class Patient {
     @Column(name="Fecha_Admision")
     private LocalDate admission;
 
-    public Patient() {
+    //RELACION ENTRE LAS TABLAS
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_address", referencedColumnName = "id")
+    private Address address;
+
+    // RECORDAR!! AGREGAR METODOS GET Y SET
+    public Address getAddress() {
+        return address;
     }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    //CONSTRUCTOR VIENE POR DEFECTO ES REDUNDATE CREAERLO DE NUEVO
+    //public Patient() {}
 
     public Integer getId() {
         return id;
