@@ -43,4 +43,13 @@ public class PatientService {
         return repository.findAll();
     }
 
+    //AGREGAR CONSULTA HQL
+    public Optional<Patient> findByLastName(String lastName){
+        return repository.findByLastName(lastName);
+    }
+
+    public Optional<Patient> findByName(String name){
+        return repository.findByName(name);
+    }
+
 }

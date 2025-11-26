@@ -26,7 +26,7 @@ public class Patient {
     private LocalDate admission;
 
     //RELACION ENTRE LAS TABLAS
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_address", referencedColumnName = "id")
     private Address address;
 

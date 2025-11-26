@@ -70,4 +70,26 @@ public class PatientController {
             return "No se encontró el paciente con id: " + id;
         }
     }
+
+    //CONSULTAR PACIENTE POR APELLIDO
+    @GetMapping("/lastName/{lastName}")
+    public Patient findByLastName (@PathVariable String lastName){
+        Optional<Patient> patient = patientService.findByLastName(lastName);
+        if(patient.isPresent()){
+            return patient.get();
+        } else{
+            return null;
+        }
+    }
+
+    //CONSULTAR PACIENTE POR NOMBRE
+    @GetMapping("/name/{name}")
+    public Patient findByName(@PathVariable String name){
+        Optional<Patient> patient = patientService.findByName(name);
+        if(patient.isPresent()){
+            return patient.get();
+        }else{
+            return null;
+        }
+    }
 }
